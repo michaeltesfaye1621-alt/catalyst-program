@@ -1,47 +1,50 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Flame, Wrench, Shield } from "lucide-react";
-
-const phases = [
-  {
-    icon: Flame,
-    phase: "Phase 1",
-    title: "IGNITE",
-    subtitle: "Relief & Inflammation Control",
-    description: "Immediate pain relief through targeted interventions. We identify the root cause and eliminate acute inflammation to prepare your body for rebuilding.",
-  },
-  {
-    icon: Wrench,
-    phase: "Phase 2",
-    title: "REBUILD",
-    subtitle: "Functional Mobility & Strength",
-    description: "Restore your body's natural movement patterns. Progressive exercises designed to rebuild strength while correcting biomechanical imbalances.",
-  },
-  {
-    icon: Shield,
-    phase: "Phase 3",
-    title: "SUSTAIN",
-    subtitle: "Performance & Injury Proofing",
-    description: "Lock in your gains with advanced protocols. Build resilience and performance capacity that prevents future injuries and exceeds your baseline.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Roadmap = () => {
+  const { t } = useLanguage();
+
+  const phases = [
+    {
+      icon: Flame,
+      phase: t("roadmap_phase1_label"),
+      title: t("roadmap_phase1_title"),
+      subtitle: t("roadmap_phase1_subtitle"),
+      description: t("roadmap_phase1_desc"),
+    },
+    {
+      icon: Wrench,
+      phase: t("roadmap_phase2_label"),
+      title: t("roadmap_phase2_title"),
+      subtitle: t("roadmap_phase2_subtitle"),
+      description: t("roadmap_phase2_desc"),
+    },
+    {
+      icon: Shield,
+      phase: t("roadmap_phase3_label"),
+      title: t("roadmap_phase3_title"),
+      subtitle: t("roadmap_phase3_subtitle"),
+      description: t("roadmap_phase3_desc"),
+    },
+  ];
+
   return (
     <section id="roadmap" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            The 3-Phase <span className="text-primary">Roadmap</span>
+            {t("roadmap_title_1")} <span className="text-primary">{t("roadmap_title_2")}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A structured 12-week journey designed to take you from pain to peak performance.
+            {t("roadmap_sub")}
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {phases.map((phase, index) => (
             <Card 
-              key={phase.title}
+              key={index}
               className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/5 group"
               style={{ animationDelay: `${index * 100}ms` }}
             >

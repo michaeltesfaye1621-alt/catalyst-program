@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BookingModalProps {
   open: boolean;
@@ -27,6 +28,7 @@ interface BookingModalProps {
 
 const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -39,24 +41,12 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate submission delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Show success toast
     toast({
-      title: "Thank you!",
-      description: "Dr. Thorne's team will contact you within 24 hours.",
+      title: t("booking_toast_title"),
+      description: t("booking_toast_desc"),
     });
-
-    // Reset form and close modal
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    });
+    setFormData({ fullName: "", email: "", phone: "", service: "", message: "" });
     setIsSubmitting(false);
     onOpenChange(false);
   };
@@ -66,90 +56,74 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
       <DialogContent className="sm:max-w-md bg-card border-border">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
-            Book Your <span className="text-primary">Session</span>
+            {t("booking_title_1")} <span className="text-primary">{t("booking_title_2")}</span>
           </DialogTitle>
-          <DialogDescription>
-            Fill out the form below and we'll get back to you within 24 hours.
-          </DialogDescription>
+          <DialogDescription>{t("booking_desc")}</DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name *</Label>
+            <Label htmlFor="fullName">{t("booking_name")}</Label>
             <Input
               id="fullName"
               required
-              placeholder="Your full name"
+              placeholder={t("booking_name_ph")}
               value={formData.fullName}
-              onChange={(e) =>
-                setFormData({ ...formData, fullName: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
               className="bg-background border-border"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="email">{t("booking_email")}</Label>
             <Input
               id="email"
               type="email"
               required
-              placeholder="your@email.com"
+              placeholder={t("booking_email_ph")}
               value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="bg-background border-border"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number *</Label>
+            <Label htmlFor="phone">{t("booking_phone")}</Label>
             <Input
               id="phone"
               type="tel"
               required
-              placeholder="+49 123 456 7890"
+              placeholder={t("booking_phone_ph")}
               value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="bg-background border-border"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="service">Preferred Service *</Label>
+            <Label htmlFor="service">{t("booking_service")}</Label>
             <Select
               required
               value={formData.service}
-              onValueChange={(value) =>
-                setFormData({ ...formData, service: value })
-              }
+              onValueChange={(value) => setFormData({ ...formData, service: value })}
             >
               <SelectTrigger className="bg-background border-border">
-                <SelectValue placeholder="Select a service" />
+                <SelectValue placeholder={t("booking_service_ph")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="12-week-program">
-                  12-Week Catalyst Program – €2,350
-                </SelectItem>
-                <SelectItem value="diagnostic-assessment">
-                  Initial Diagnostic Assessment – €295
-                </SelectItem>
+                <SelectItem value="12-week-program">{t("booking_service_1")}</SelectItem>
+                <SelectItem value="diagnostic-assessment">{t("booking_service_2")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message (Optional)</Label>
+            <Label htmlFor="message">{t("booking_message")}</Label>
             <Textarea
               id="message"
-              placeholder="Tell us about your situation..."
+              placeholder={t("booking_message_ph")}
               value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className="bg-background border-border resize-none"
               rows={3}
             />
@@ -163,10 +137,10 @@ const BookingModal = ({ open, onOpenChange }: BookingModalProps) => {
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Submitting...
+                {t("booking_submitting")}
               </>
             ) : (
-              "Submit Inquiry"
+              t("booking_submit")
             )}
           </Button>
         </form>
