@@ -4,41 +4,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqs = [
-  {
-    question: "What about health insurance coverage?",
-    answer: "Many private health insurance plans in Germany cover physiotherapy treatments. We provide detailed invoices that you can submit to your insurance provider for reimbursement. During your initial consultation, we can discuss your specific coverage and help you understand what expenses may be covered.",
-  },
-  {
-    question: "How much time does this take daily?",
-    answer: "The daily commitment is approximately 15 minutes of prescribed exercises and movement protocols. These are designed to integrate seamlessly into your routine—whether you're at home, in the office, or traveling. Consistency with these short sessions is key to achieving lasting results.",
-  },
-  {
-    question: "How does the App + Concierge model work?",
-    answer: "Upon enrollment, you receive access to a custom video portal featuring your personalized exercise library, progress tracking, and educational content. The Concierge Messaging service provides 24/7 access to Dr. Thorne's team for questions, form checks, and support between sessions. Think of it as having a physiotherapist in your pocket.",
-  },
-  {
-    question: "Who is this program designed for?",
-    answer: "The Catalyst Method is designed for anyone with a body seeking lasting relief and peak performance—elite athletes recovering from injury, professionals dealing with chronic pain from desk work, active individuals wanting to prevent future issues, and anyone who refuses to accept pain as a permanent companion.",
-  },
-  {
-    question: "What makes this different from traditional physiotherapy?",
-    answer: "Traditional therapy often treats symptoms. The Catalyst Method is a comprehensive biomechanical approach that identifies and corrects the root cause of dysfunction. We don't just get you back to baseline—we engineer your body to perform better than before the injury occurred.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQ = () => {
+  const { t } = useLanguage();
+
+  const faqs = [
+    { question: t("faq_q1"), answer: t("faq_a1") },
+    { question: t("faq_q2"), answer: t("faq_a2") },
+    { question: t("faq_q3"), answer: t("faq_a3") },
+    { question: t("faq_q4"), answer: t("faq_a4") },
+    { question: t("faq_q5"), answer: t("faq_a5") },
+  ];
+
   return (
     <section id="faq" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Frequently Asked <span className="text-primary">Questions</span>
+            {t("faq_title_1")} <span className="text-primary">{t("faq_title_2")}</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know before starting your transformation.
-          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{t("faq_sub")}</p>
         </div>
 
         <div className="max-w-3xl mx-auto">

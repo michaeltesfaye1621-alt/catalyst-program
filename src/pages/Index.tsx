@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navigation from "@/components/landing/Navigation";
 import Hero from "@/components/landing/Hero";
 import Specialist from "@/components/landing/Specialist";
@@ -18,33 +19,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <Navigation onBookClick={handleBookClick} />
-
-      {/* Main Content */}
-      <main>
-        <Hero onBookClick={handleBookClick} />
-        <Specialist />
-        <Roadmap />
-        <CaseStudies />
-        <FAQ />
-        <Pricing onBookClick={handleBookClick} />
-        <Footer onBookClick={handleBookClick} />
-      </main>
-
-      {/* Mobile Sticky CTA */}
-      <MobileCTA onBookClick={handleBookClick} />
-
-      {/* Booking Modal */}
-      <BookingModal 
-        open={bookingModalOpen} 
-        onOpenChange={setBookingModalOpen} 
-      />
-
-      {/* Bottom padding for mobile CTA */}
-      <div className="h-20 md:hidden" />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        <Navigation onBookClick={handleBookClick} />
+        <main>
+          <Hero onBookClick={handleBookClick} />
+          <Specialist />
+          <Roadmap />
+          <CaseStudies />
+          <FAQ />
+          <Pricing onBookClick={handleBookClick} />
+          <Footer onBookClick={handleBookClick} />
+        </main>
+        <MobileCTA onBookClick={handleBookClick} />
+        <BookingModal open={bookingModalOpen} onOpenChange={setBookingModalOpen} />
+        <div className="h-20 md:hidden" />
+      </div>
+    </LanguageProvider>
   );
 };
 
