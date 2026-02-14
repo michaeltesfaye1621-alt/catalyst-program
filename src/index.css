@@ -105,10 +105,21 @@
     animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
 
-  .animate-stagger-1 { animation-delay: 100ms; }
-  .animate-stagger-2 { animation-delay: 200ms; }
-  .animate-stagger-3 { animation-delay: 300ms; }
-  .animate-stagger-4 { animation-delay: 400ms; }
+  .animate-stagger-1 {
+    animation-delay: 100ms;
+  }
+
+  .animate-stagger-2 {
+    animation-delay: 200ms;
+  }
+
+  .animate-stagger-3 {
+    animation-delay: 300ms;
+  }
+
+  .animate-stagger-4 {
+    animation-delay: 400ms;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     * {
@@ -118,13 +129,112 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Premium Visual Utilities */
+  .noise-overlay {
+    @apply fixed inset-0 pointer-events-none opacity-[0.03] z-[50];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .mesh-gradient {
+    @apply fixed inset-0 z-[-1] overflow-hidden;
+    background: radial-gradient(at 0% 0%, hsla(180, 100%, 41%, 0.1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(180, 100%, 20%, 0.05) 0, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(180, 100%, 41%, 0.05) 0, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(180, 100%, 30%, 0.05) 0, transparent 50%);
+  }
+
+  .glass-premium {
+    @apply backdrop-blur-xl bg-card/60;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 0 0 1px rgba(0, 209, 209, 0.1);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-2xl bg-white/5 border border-white/10 shadow-2xl transition-all duration-500 overflow-hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  }
+
+  .glass-card-border {
+    @apply absolute inset-0 pointer-events-none rounded-[inherit];
+    padding: 1px;
+    background: linear-gradient(135deg, hsla(180, 100%, 41%, 0.3), transparent 40%, rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .shimmer-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.2) 80%,
+        rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 5s infinite linear;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .energy-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #fff, #00D1D1, #fff, #00D1D1, #fff);
+    background-size: 400% auto;
+    animation: shine 8s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 400% center;
+    }
+  }
+
+  .blob {
+    @apply absolute rounded-full blur-[100px] z-[-1] opacity-20 pointer-events-none;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, hsla(180, 100%, 41%, 0.2) 0%, transparent 70%);
+    animation: blob-float 25s infinite alternate ease-in-out;
+  }
+
+  @keyframes blob-float {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+      transform: translate(10%, 15%) scale(1.1) rotate(120deg);
+    }
+
+    66% {
+      transform: translate(-15%, -10%) scale(0.9) rotate(240deg);
+    }
+
+    100% {
+      transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+  }
 }
+
 
 @keyframes reveal {
   from {
     opacity: 0;
     transform: scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -134,19 +244,22 @@
 @keyframes revealUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.98);
   }
+
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
+
 
 @keyframes slideInLeft {
   from {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -158,9 +271,9 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-

@@ -34,10 +34,10 @@ const Roadmap = () => {
   ];
 
   return (
-    <SectionWrapper id="roadmap">
+    <SectionWrapper id="roadmap" className="relative overflow-visible">
       <div className="text-center mb-16 md:mb-24 animate-reveal">
         <h2 className="mb-6">
-          {t("roadmap_title_1")} <span className="text-primary">{t("roadmap_title_2")}</span>
+          {t("roadmap_title_1")} <span className="energy-gradient">{t("roadmap_title_2")}</span>
         </h2>
         <p className="text-readable">
           {t("roadmap_sub")}
@@ -46,30 +46,30 @@ const Roadmap = () => {
 
       <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
         {phases.map((phase, index) => (
-          <Card
+          <div
             key={index}
-            className={`bg-card/50 backdrop-blur-sm border-border/50 rounded-3xl transition-all duration-500 hover:border-primary/40 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10 group animate-reveal ${phase.delay}`}
+            className={`glass-card rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 group animate-reveal ${phase.delay}`}
           >
-            <CardHeader className="text-center pb-4 pt-10">
-              <div className="mx-auto w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:rotate-6">
-                <phase.icon className="h-10 w-10 text-primary transition-transform duration-500 group-hover:scale-110" />
+            <div className="glass-card-border" />
+            <div className="text-center pb-12 pt-12 px-8 relative z-10">
+              <div className="mx-auto w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:border-primary transition-all duration-700 group-hover:rotate-6 shadow-[0_0_30px_rgba(0,209,209,0.1)] group-hover:shadow-primary/30">
+                <phase.icon className="h-10 w-10 text-primary group-hover:text-primary-foreground transition-all duration-700 group-hover:scale-125" />
               </div>
-              <div className="space-y-2">
-                <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">
+              <div className="space-y-3 mb-6">
+                <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">
                   {phase.phase}
                 </span>
-                <CardTitle className="text-2xl font-bold pt-2">{phase.title}</CardTitle>
-                <p className="text-sm text-primary font-semibold tracking-wide uppercase">{phase.subtitle}</p>
+                <h3 className="text-2xl font-black pt-4">{phase.title}</h3>
+                <p className="text-xs text-primary font-black tracking-widest uppercase opacity-80">{phase.subtitle}</p>
               </div>
-            </CardHeader>
-            <CardContent className="text-center px-8 pb-12">
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 {phase.description}
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
+
 
       <div className="mt-20 text-center animate-reveal animate-stagger-4">
         <p className="text-muted-foreground mb-6">Ready to start the journey?</p>
