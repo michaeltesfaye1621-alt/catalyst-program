@@ -11,41 +11,51 @@ const Hero = ({ onBookClick }: HeroProps) => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex items-center pt-16 pb-12">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-slide-in-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-balance mb-6">
+    <section className="min-h-[90vh] flex items-center pt-24 pb-16">
+      <div className="container-narrow">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="animate-reveal">
+            <h1 className="mb-6 text-balance">
               {t("hero_headline_1")}{" "}
               <span className="text-primary">{t("hero_headline_2")}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
               {t("hero_sub")}
             </p>
-            <Button 
-              onClick={onBookClick}
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-lg px-8 py-6 group"
-            >
-              {t("hero_cta")}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 items-start animate-reveal-up animate-stagger-1">
+              <Button
+                onClick={onBookClick}
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-10 py-7 h-auto group transition-all hover:scale-105 active:scale-95"
+              >
+                {t("hero_cta")}
+                <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
+              </Button>
+            </div>
           </div>
 
-          <div className="animate-slide-in-right">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-border">
-              <img 
-                src={drThorneImg} 
-                alt="Dr. Aris Thorne - Clinical Physiotherapist" 
-                className="w-full h-full object-cover"
+          <div className="animate-reveal animate-stagger-2">
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/5">
+              <img
+                src={drThorneImg}
+                alt="Dr. Aris Thorne - Clinical Physiotherapist"
+                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Scroll Hint */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+        <div className="w-1 h-12 rounded-full bg-gradient-to-b from-primary/50 to-transparent" />
+      </div>
     </section>
   );
 };
+
+
 
 export default Hero;

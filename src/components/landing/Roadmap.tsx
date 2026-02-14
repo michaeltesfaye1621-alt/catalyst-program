@@ -12,6 +12,7 @@ const Roadmap = () => {
       title: t("roadmap_phase1_title"),
       subtitle: t("roadmap_phase1_subtitle"),
       description: t("roadmap_phase1_desc"),
+      delay: "animate-stagger-1"
     },
     {
       icon: Wrench,
@@ -19,6 +20,7 @@ const Roadmap = () => {
       title: t("roadmap_phase2_title"),
       subtitle: t("roadmap_phase2_subtitle"),
       description: t("roadmap_phase2_desc"),
+      delay: "animate-stagger-2"
     },
     {
       icon: Shield,
@@ -26,49 +28,63 @@ const Roadmap = () => {
       title: t("roadmap_phase3_title"),
       subtitle: t("roadmap_phase3_subtitle"),
       description: t("roadmap_phase3_desc"),
+      delay: "animate-stagger-3"
     },
   ];
 
   return (
-    <section id="roadmap" className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    <section id="roadmap" className="section-padding overflow-hidden">
+      <div className="container-narrow">
+        <div className="text-center mb-16 md:mb-24 animate-reveal">
+          <h2 className="mb-6">
             {t("roadmap_title_1")} <span className="text-primary">{t("roadmap_title_2")}</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-readable">
             {t("roadmap_sub")}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {phases.map((phase, index) => (
-            <Card 
+            <Card
               key={index}
-              className="bg-card border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/5 group"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`bg-card/50 backdrop-blur-sm border-border/50 rounded-3xl transition-all duration-500 hover:border-primary/40 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10 group animate-reveal ${phase.delay}`}
             >
-              <CardHeader className="text-center pb-2">
-                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <phase.icon className="h-8 w-8 text-primary" />
+              <CardHeader className="text-center pb-4 pt-10">
+                <div className="mx-auto w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:rotate-6">
+                  <phase.icon className="h-10 w-10 text-primary transition-transform duration-500 group-hover:scale-110" />
                 </div>
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                  {phase.phase}
-                </span>
-                <CardTitle className="text-2xl font-bold mt-1">{phase.title}</CardTitle>
-                <p className="text-sm text-primary font-medium">{phase.subtitle}</p>
+                <div className="space-y-2">
+                  <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">
+                    {phase.phase}
+                  </span>
+                  <CardTitle className="text-2xl font-bold pt-2">{phase.title}</CardTitle>
+                  <p className="text-sm text-primary font-semibold tracking-wide uppercase">{phase.subtitle}</p>
+                </div>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm leading-relaxed">
+              <CardContent className="text-center px-8 pb-12">
+                <p className="text-muted-foreground leading-relaxed">
                   {phase.description}
                 </p>
               </CardContent>
             </Card>
           ))}
         </div>
+
+        <div className="mt-20 text-center animate-reveal animate-stagger-4">
+          <p className="text-muted-foreground mb-6">Ready to start the journey?</p>
+          <a
+            href="#pricing"
+            className="inline-flex items-center text-primary font-bold hover:underline group text-lg"
+          >
+            {t("pricing_cta")}
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </div>
     </section>
   );
 };
+
 
 export default Roadmap;

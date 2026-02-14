@@ -8,6 +8,10 @@ const translations = {
     nav_logo_prefix: "THE",
     nav_logo_accent: "CATALYST",
     nav_cta: "Start Program",
+    nav_process: "Process",
+    nav_results: "Results",
+    nav_pricing: "Pricing",
+    nav_faq: "FAQ",
 
     // Hero
     hero_headline_1: "Stop Managing Pain.",
@@ -122,6 +126,10 @@ const translations = {
     nav_logo_prefix: "THE",
     nav_logo_accent: "CATALYST",
     nav_cta: "Programm starten",
+    nav_process: "Prozess",
+    nav_results: "Ergebnisse",
+    nav_pricing: "Preise",
+    nav_faq: "FAQ",
 
     // Hero
     hero_headline_1: "Schluss mit Schmerzmanagement.",
