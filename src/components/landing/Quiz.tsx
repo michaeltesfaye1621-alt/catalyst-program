@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
 import { CheckCircle2, ChevronRight, RefreshCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Quiz = () => {
+    const { t, language } = useLanguage();
+
     const [step, setStep] = useState(0);
     const [score, setScore] = useState(0);
     const [completed, setCompleted] = useState(false);
 
     const questions = [
         {
-            question: "How often does your pain return after temporary relief?",
+            question: t("quiz_q1"),
             options: [
-                { text: "Rarely/Never", points: 1 },
-                { text: "Every few months", points: 2 },
-                { text: "Several times a month", points: 3 },
-                { text: "It's constant", points: 4 },
+                { text: t("quiz_q1_o1"), points: 1 },
+                { text: t("quiz_q1_o2"), points: 2 },
+                { text: t("quiz_q1_o3"), points: 3 },
+                { text: t("quiz_q1_o4"), points: 4 },
             ],
         },
         {
-            question: "Do you feel like you're 'working around' an injury during exercise?",
+            question: t("quiz_q2"),
             options: [
-                { text: "No, I move freely", points: 1 },
-                { text: "Sometimes, with heavy loads", points: 2 },
-                { text: "Yes, I often have to modify", points: 3 },
-                { text: "I've stopped most activities", points: 4 },
+                { text: t("quiz_q2_o1"), points: 1 },
+                { text: t("quiz_q2_o2"), points: 2 },
+                { text: t("quiz_q2_o3"), points: 3 },
+                { text: t("quiz_q2_o4"), points: 4 },
             ],
         },
         {
-            question: "Has anyone assessed your full biomechanical chain (not just the site of pain)?",
+            question: t("quiz_q3"),
             options: [
-                { text: "Yes, comprehensive plan in place", points: 1 },
-                { text: "Partially, focus was on the joints", points: 2 },
-                { text: "No, only where it hurts", points: 3 },
-                { text: "Never had an assessment", points: 4 },
+                { text: t("quiz_q3_o1"), points: 1 },
+                { text: t("quiz_q3_o2"), points: 2 },
+                { text: t("quiz_q3_o3"), points: 3 },
+                { text: t("quiz_q3_o4"), points: 4 },
             ],
         },
     ];
@@ -59,7 +62,9 @@ const Quiz = () => {
             {!completed ? (
                 <div className="relative z-10">
                     <div className="flex justify-between items-center mb-8">
-                        <span className="text-primary font-bold text-xs uppercase tracking-widest">Question {step + 1} of {questions.length}</span>
+                        <span className="text-primary font-bold text-xs uppercase tracking-widest">
+                            {language === 'de' ? `Frage ${step + 1} von ${questions.length}` : `Question ${step + 1} of ${questions.length}`}
+                        </span>
                         <div className="flex gap-1">
                             {questions.map((_, i) => (
                                 <div key={i} className={`h-1.5 w-6 rounded-full transition-colors ${i <= step ? 'bg-primary' : 'bg-white/10'}`} />
@@ -87,26 +92,26 @@ const Quiz = () => {
                     <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle2 className="w-10 h-10 text-primary" />
                     </div>
-                    <h3 className="text-3xl font-bold mb-4">Assessment Complete</h3>
+                    <h3 className="text-3xl font-bold mb-4">{t("quiz_complete")}</h3>
                     <p className="text-muted-foreground mb-8 text-lg">
                         {score > 9
-                            ? "Your biomechanical health shows significant red flags. You are likely stuck in a symptom-management loop."
+                            ? t("quiz_result_high")
                             : score > 6
-                                ? "There are clear dysfunctions in your movement chain that will likely lead to future relapses."
-                                : "Your foundation is decent, but there's significant room to optimize for performance and longevity."
+                                ? t("quiz_result_med")
+                                : t("quiz_result_low")
                         }
                     </p>
 
                     <div className="space-y-4">
                         <Button className="w-full bg-primary text-primary-foreground font-bold py-6 h-auto text-lg rounded-xl">
-                            Request Your Blueprint
+                            {t("quiz_cta")}
                         </Button>
                         <button
                             onClick={resetQuiz}
                             className="flex items-center gap-2 mx-auto text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
                         >
                             <RefreshCcw className="w-4 h-4" />
-                            Retake Assessment
+                            {t("quiz_retake")}
                         </button>
                     </div>
                 </div>

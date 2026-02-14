@@ -9,15 +9,15 @@ const Problem = () => {
     const painPoints = [
         {
             icon: XCircle,
-            text: "Chronic pain that dictates your daily schedule and limits your life.",
+            text: t("problem_p1"),
         },
         {
             icon: TrendingDown,
-            text: "Traditional 'rehab' that only treats symptoms, leading to relapses.",
+            text: t("problem_p2"),
         },
         {
             icon: AlertCircle,
-            text: "The frustration of knowing you're capable of more, but your body is holding you back.",
+            text: t("problem_p3"),
         },
     ];
 
@@ -26,7 +26,7 @@ const Problem = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div className="animate-reveal">
                     <h2 className="mb-8 text-balance">
-                        Pain isn't a life sentence—it's a <span className="energy-gradient block">signal of dysfunction.</span>
+                        {t("problem_title_1")} <span className="energy-gradient block">{t("problem_title_2")}</span>
                     </h2>
                     <div className="space-y-6">
                         {painPoints.map((point, index) => (
@@ -41,9 +41,9 @@ const Problem = () => {
                 </div>
                 <div className="glass-card rounded-[3rem] p-10 md:p-16 animate-reveal animate-stagger-1 relative overflow-hidden">
                     <div className="glass-card-border" />
-                    <h3 className="mb-6 text-3xl font-bold">The Cycle Stops Here.</h3>
+                    <h3 className="mb-6 text-3xl font-bold">{t("problem_card_title")}</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed mb-8 relative z-10">
-                        Most therapy focuses on where it hurts. We focus on <strong>why it hurts.</strong> By correcting the underlying biomechanical architecture, we don't just fix the pain—we prevent it from ever coming back.
+                        {t("problem_card_text")}
                     </p>
                     <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-transparent rounded-full" />
                 </div>
@@ -51,8 +51,8 @@ const Problem = () => {
 
             <div className="mt-20">
                 <div className="text-center mb-12">
-                    <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs">The Methodology</span>
-                    <h2 className="mt-4 text-3xl md:text-5xl">Why We're <span className="text-primary italic">Different</span></h2>
+                    <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs">{t("method_label")}</span>
+                    <h2 className="mt-4 text-3xl md:text-5xl">{t("method_title_1")} <span className="text-primary italic">{t("method_title_2")}</span></h2>
                 </div>
                 <ComparisonTable />
             </div>
