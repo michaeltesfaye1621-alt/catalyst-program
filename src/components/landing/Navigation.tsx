@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Globe } from "lucide-react";
+import { sections } from "@/config/sections";
 
 interface NavigationProps {
   onBookClick: () => void;
@@ -9,12 +10,10 @@ interface NavigationProps {
 const Navigation = ({ onBookClick }: NavigationProps) => {
   const { language, setLanguage, t } = useLanguage();
 
-  const navItems = [
-    { label: t("nav_process"), href: "#roadmap" },
-    { label: t("nav_results"), href: "#case-studies" },
-    { label: t("nav_pricing"), href: "#pricing" },
-    { label: t("nav_faq"), href: "#faq" },
-  ];
+  // Filter sections that should appear in nav (Process, Results, Pricing, FAQ)
+  const navItems = sections.filter(s =>
+    ["roadmap", "case-studies", "pricing", "faq"].includes(s.id)
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
@@ -27,11 +26,11 @@ const Navigation = ({ onBookClick }: NavigationProps) => {
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={item.id}
+              href={`#${item.id}`}
               className="text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
             >
-              {item.label}
+              {t(item.labelKey)}
             </a>
           ))}
         </nav>
@@ -57,6 +56,5 @@ const Navigation = ({ onBookClick }: NavigationProps) => {
     </header>
   );
 };
-
 
 export default Navigation;

@@ -3,10 +3,10 @@
 This document outlines the systematic approach to updating the Catalyst Program landing page. The goal is to improve the narrative flow, visual hierarchy, consistency, and overall user experience.
 
 ## 1. Narrative & Page Flow
-- [ ] **Story Arc Reinforcement**
-  - [ ] Validate/Adjust section order: Problem → Authority → Process → Proof → Offer → Risk-reversal → CTA.
-  - [ ] Rename sections for better narrative (e.g., "Specialist" to "Who guides your recovery").
-  - [ ] Add bridging sentences or subtitles between sections for smooth transitions.
+- [x] **Story Arc Reinforcement**
+  - [x] Validate/Adjust section order: Problem → Authority → Process → Proof → Offer → Risk-reversal → CTA.
+  - [x] Rename sections for better narrative (e.g., "Specialist" to "Who guides your recovery").
+  - [x] Add bridging sentences or subtitles between sections for smooth transitions.
 - [x] **Micro-CTAs Integration**
   - [x] Add 2–3 strategic micro-CTAs (e.g., after Roadmap, Case Studies, FAQ).
   - [x] Style micro-CTAs differently from primary CTAs (lighter weight/size).
@@ -54,58 +54,58 @@ This document outlines the systematic approach to updating the Catalyst Program 
 
 
 ## 5. Navigation, Language Toggle & Scrolling
-- [ ] **Nav Enhancement**
-  - [ ] Define top-level items: Process, Results, Pricing, FAQ.
-  - [ ] Implement smooth-scroll with `scroll-margin-top` to account for fixed header.
-- [ ] **Language Toggle Clarity**
-  - [ ] Standardized label: "Switch language to German/English".
-  - [ ] Prevent wrapping or layout breakage for longer localized text.
-- [ ] **Scroll Affordances**
-  - [ ] Add "scroll hint" (down arrow/indicator) at the hero bottom.
+- [x] **Nav Enhancement**
+  - [x] Define top-level items: Process, Results, Pricing, FAQ.
+  - [x] Implement smooth-scroll with `scroll-margin-top` to account for fixed header.
+- [x] **Language Toggle Clarity**
+  - [x] Standardized label: "Switch language to German/English".
+  - [x] Prevent wrapping or layout breakage for longer localized text.
+- [x] **Scroll Affordances**
+  - [x] Add "scroll hint" (down arrow/indicator) at the hero bottom.
 
 ## 6. Mobile & Responsive Behavior
-- [ ] **Breakpoint Tuning**
-  - [ ] Manual testing/fixes at 360px, 768px, 1024px.
-  - [ ] Fix heading/price wrapping issues.
-- [ ] **Hero Mobile Optimization**
-  - [ ] Optimize text/image stack order.
-  - [ ] Ensure hero CTA is visible "above the fold" on common phone heights.
-- [ ] **Mobile CTA & Footer**
-  - [ ] Check for overlap between floating CTA and footer content/forms.
-  - [ ] Ensure adequate spacing and tap target sizing (min 44px).
+- [x] **Breakpoint Tuning**
+  - [x] Manual testing/fixes at 360px, 768px, 1024px.
+  - [x] Fix heading/price wrapping issues.
+- [x] **Hero Mobile Optimization**
+  - [x] Optimize text/image stack order.
+  - [x] Ensure hero CTA is visible "above the fold" on common phone heights.
+- [x] **Mobile CTA & Footer**
+  - [x] Check for overlap between floating CTA and footer content/forms.
+  - [x] Ensure adequate spacing and tap target sizing (min 44px).
 
 ## 7. Content Clarity & Trust Signals
-- [ ] **Outcome Highlighting**
-  - [ ] Add Results Summary (e.g., "75% Mobility Improvement") before pricing.
-  - [ ] Bold key stats in Case Studies.
-- [ ] **FAQ as Objection Handling**
-  - [ ] Reorder FAQs by priority/objections.
-  - [ ] Highlight the most critical FAQ (open by default).
-- [ ] **Pricing Framing**
-  - [ ] Add "Value Contrast" (e.g., vs traditional therapy).
-  - [ ] Clearly state "Next Steps" below the price.
+- [x] **Outcome Highlighting**
+  - [x] Add Results Summary (e.g., "75% Mobility Improvement") before pricing.
+  - [x] Bold key stats in Case Studies.
+- [x] **FAQ as Objection Handling**
+  - [x] Reorder FAQs by priority/objections.
+  - [x] Highlight the most critical FAQ (open by default).
+- [x] **Pricing Framing**
+  - [x] Add "Value Contrast" (e.g., vs traditional therapy).
+  - [x] Clearly state "Next Steps" below the price.
 
 ## 8. Accessibility & Usability
-- [ ] **Contrast & Legibility**
-  - [ ] Check contrast ratios (WCAG AA).
-  - [ ] Verify light/dark mode readability.
-- [ ] **Keyboard & SR Support**
-  - [ ] Verify tab order for all interactive elements.
-  - [ ] Ensure visible focus states.
-  - [ ] Audit heading levels (h1 → h2 → h3).
-- [ ] **Media Accessibility**
-  - [ ] Audit all alt text.
-  - [ ] Ensure animations don't trigger discomfort.
+- [x] **Contrast & Legibility**
+  - [x] Check contrast ratios (WCAG AA).
+  - [x] Verify light/dark mode readability.
+- [x] **Keyboard & SR Support**
+  - [x] Verify tab order for all interactive elements.
+  - [x] Ensure visible focus states.
+  - [x] Audit heading levels (h1 → h2 → h3).
+- [x] **Media Accessibility**
+  - [x] Audit all alt text.
+  - [x] Ensure animations don't trigger discomfort.
 
 ## 9. Frontend Architecture (Refactoring)
-- [ ] **Section Configuration Source**
-  - [ ] Extract section metadata (id, title, label) into a central config.
-  - [ ] Sync nav and scroll targets to this config.
-- [ ] **Shared Section Patterns**
-  - [ ] Create a `SectionWrapper` or shared classes for container padding/spacing.
-  - [ ] Standardize background color variations.
-- [ ] **Motion Utilities**
-  - [ ] Centralize animation constants (duration, delay).
+- [x] **Section Configuration Source**
+  - [x] Extract section metadata (id, title, label) into a central config.
+  - [x] Sync nav and scroll targets to this config.
+- [x] **Shared Section Patterns**
+  - [x] Create a `SectionWrapper` or shared classes for container padding/spacing.
+  - [x] Standardize background color variations.
+- [x] **Motion Utilities**
+  - [x] Centralize animation constants (duration, delay).
 
 ## 10. Optional Enhancements
 - [ ] Scroll progress indicator.
@@ -117,8 +117,8 @@ This document outlines the systematic approach to updating the Catalyst Program 
 ### Implementation Progress Tracking
 | Phase | Focus | Status |
 |---|---|---|
-| Phase 1 | Foundation (Layout, Typography, Colors) | [ ] |
-| Phase 2 | Components (Cards, Icons, CTAs) | [ ] |
-| Phase 3 | Content & Narrative (Copy, Flow, Objections) | [ ] |
-| Phase 4 | Motion & UX (Animations, Nav, Mobile) | [ ] |
-| Phase 5 | Accessibility & Polish | [ ] |
+| Phase 1 | Foundation (Layout, Typography, Colors) | [x] |
+| Phase 2 | Components (Cards, Icons, CTAs) | [x] |
+| Phase 3 | Content & Narrative (Copy, Flow, Objections) | [x] |
+| Phase 4 | Motion & UX (Animations, Nav, Mobile) | [x] |
+| Phase 5 | Accessibility & Polish | [x] |

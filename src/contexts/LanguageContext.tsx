@@ -17,12 +17,12 @@ const translations = {
     hero_headline_1: "Stop Managing Pain.",
     hero_headline_2: "Start Your Transformation.",
     hero_sub: "A 12-week biomechanical blueprint designed by Dr. Aris Thorne to reclaim your peak performance.",
-    hero_cta: "Book Your Session",
+    hero_cta: "Book Initial Assessment",
 
     // Specialist
-    specialist_title_1: "The",
-    specialist_title_2: "Catalyst",
-    specialist_title_3: "Method",
+    specialist_title_1: "Who",
+    specialist_title_2: "Guides",
+    specialist_title_3: "Your Recovery",
     specialist_sub: "A revolutionary approach to biomechanical healing that goes beyond traditional therapy.",
     specialist_name: 'Dr. Aris "The Catalyst" Thorne',
     specialist_bio: "With over a decade of experience in biomechanical physiotherapy, Dr. Thorne has developed a unique methodology that addresses the root cause of pain, not just the symptoms. His approach combines cutting-edge diagnostics with personalized treatment protocols that have helped hundreds of patients—from elite athletes to everyday individuals—achieve lasting recovery and peak performance.",
@@ -30,6 +30,14 @@ const translations = {
     specialist_cred_1: "Expert Clinical Physiotherapist",
     specialist_cred_2: "Germany",
     specialist_cred_3: "Biomedical Approach",
+
+    // Results Summary
+    results_stat_1: "75%",
+    results_stat_1_label: "Mobility Improvement",
+    results_stat_2: "92%",
+    results_stat_2_label: "Pain-Free Rate",
+    results_stat_3: "125+",
+    results_stat_3_label: "Elite Athletes Treated",
 
     // Roadmap
     roadmap_title_1: "The 3-Phase",
@@ -135,12 +143,12 @@ const translations = {
     hero_headline_1: "Schluss mit Schmerzmanagement.",
     hero_headline_2: "Starten Sie Ihre Transformation.",
     hero_sub: "Ein 12-wöchiger biomechanischer Plan, entwickelt von Dr. Aris Thorne, um Ihre Höchstleistung zurückzugewinnen.",
-    hero_cta: "Sitzung buchen",
+    hero_cta: "Erstberatung buchen",
 
     // Specialist
-    specialist_title_1: "Die",
-    specialist_title_2: "Catalyst",
-    specialist_title_3: "Methode",
+    specialist_title_1: "Wer",
+    specialist_title_2: "Ihre",
+    specialist_title_3: "Heilung begleitet",
     specialist_sub: "Ein revolutionärer Ansatz der biomechanischen Heilung, der über die traditionelle Therapie hinausgeht.",
     specialist_name: 'Dr. Aris „The Catalyst" Thorne',
     specialist_bio: "Mit über einem Jahrzehnt Erfahrung in biomechanischer Physiotherapie hat Dr. Thorne eine einzigartige Methodik entwickelt, die die Ursache von Schmerzen angeht – nicht nur die Symptome. Sein Ansatz kombiniert modernste Diagnostik mit personalisierten Behandlungsprotokollen, die Hunderten von Patienten – von Spitzensportlern bis hin zu Alltagsmenschen – geholfen haben, dauerhafte Genesung und Höchstleistung zu erreichen.",
@@ -148,6 +156,14 @@ const translations = {
     specialist_cred_1: "Klinischer Physiotherapeut",
     specialist_cred_2: "Deutschland",
     specialist_cred_3: "Biomedizinischer Ansatz",
+
+    // Results Summary
+    results_stat_1: "75%",
+    results_stat_1_label: "Verbesserte Mobilität",
+    results_stat_2: "92%",
+    results_stat_2_label: "Schmerzfrei-Quote",
+    results_stat_3: "125+",
+    results_stat_3_label: "Behandelte Profisportler",
 
     // Roadmap
     roadmap_title_1: "Der 3-Phasen",
