@@ -1,14 +1,14 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Flame, Wrench, Shield, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionWrapper from "./SectionWrapper";
+import RoadmapIcon from "./RoadmapIcon";
 
 const Roadmap = () => {
   const { t } = useLanguage();
 
   const phases = [
     {
-      icon: Flame,
+      type: 'flame',
       phase: t("roadmap_phase1_label"),
       title: t("roadmap_phase1_title"),
       subtitle: t("roadmap_phase1_subtitle"),
@@ -16,7 +16,7 @@ const Roadmap = () => {
       delay: "animate-stagger-1"
     },
     {
-      icon: Wrench,
+      type: 'wrench',
       phase: t("roadmap_phase2_label"),
       title: t("roadmap_phase2_title"),
       subtitle: t("roadmap_phase2_subtitle"),
@@ -24,7 +24,7 @@ const Roadmap = () => {
       delay: "animate-stagger-2"
     },
     {
-      icon: Shield,
+      type: 'shield',
       phase: t("roadmap_phase3_label"),
       title: t("roadmap_phase3_title"),
       subtitle: t("roadmap_phase3_subtitle"),
@@ -52,8 +52,11 @@ const Roadmap = () => {
           >
             <div className="glass-card-border" />
             <div className="text-center pb-12 pt-12 px-8 relative z-10">
-              <div className="mx-auto w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:border-primary transition-all duration-700 group-hover:rotate-6 shadow-[0_0_30px_rgba(0,209,209,0.1)] group-hover:shadow-primary/30">
-                <phase.icon className="h-10 w-10 text-primary group-hover:text-primary-foreground transition-all duration-700 group-hover:scale-125" />
+              <div className="mx-auto w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:bg-primary group-hover:border-primary transition-all duration-700 group-hover:rotate-6 shadow-[0_0_30px_rgba(0,209,209,0.1)] group-hover:shadow-primary/30 overflow-hidden">
+                <RoadmapIcon
+                  type={phase.type as any}
+                  className="h-10 w-10 text-primary group-hover:text-primary-foreground transition-all duration-700 group-hover:scale-125"
+                />
               </div>
               <div className="space-y-3 mb-6">
                 <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">

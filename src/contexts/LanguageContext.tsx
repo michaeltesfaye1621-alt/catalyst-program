@@ -184,7 +184,18 @@ const translations = {
     problem_p3: "The frustration of knowing you're capable of more, but your body is holding you back.",
     problem_card_title: "The Cycle Stops Here.",
     problem_card_text: "Most therapy focuses on where it hurts. We focus on why it hurts. By correcting the underlying biomechanical architecture, we don't just fix the pain—we prevent it from ever coming back.",
+
+    // Portal
+    portal_label: "The Clinical Command Center",
+    portal_title_1: "Your recovery,",
+    portal_title_2: "in your pocket.",
+    portal_sub: "The Catalyst is more than a clinic—it's a 24/7 digital ecosystem. Access your bespoke biomechanical blueprint and world-class guidance from anywhere in the world.",
+    portal_feat_1: "Personalized corrective video database",
+    portal_feat_2: "Bio-metric progress dashboard",
+    portal_feat_3: "Direct concierge clinical support",
+    portal_feat_4: "Available on all your devices",
   },
+
   de: {
     // Navigation
     nav_logo_prefix: "THE",
@@ -366,7 +377,18 @@ const translations = {
     problem_p3: "Der Frust zu wissen, dass man zu mehr fähig ist, aber der eigene Körper einen zurückhält.",
     problem_card_title: "Der Kreislauf endet hier.",
     problem_card_text: "Die meisten Therapien konzentrieren sich darauf, wo es wehtut. Wir konzentrieren uns darauf, warum es wehtut. Durch die Korrektur der zugrunde liegenden biomechanischen Architektur beheben wir nicht nur den Schmerz – wir verhindern, dass er jemals wiederkommt.",
+
+    // Portal
+    portal_label: "Das klinische Kontrollzentrum",
+    portal_title_1: "Ihre Genesung,",
+    portal_title_2: "in Ihrer Tasche.",
+    portal_sub: "The Catalyst ist mehr als eine Klinik – es ist ein digitales 24/7-Ökosystem. Greifen Sie von überall auf der Welt auf Ihren maßgeschneiderten biomechanischen Plan und erstklassige Beratung zu.",
+    portal_feat_1: "Personalisierte korrigierende Videodatenbank",
+    portal_feat_2: "Biometrisches Fortschritts-Dashboard",
+    portal_feat_3: "Direkter Concierge-Support",
+    portal_feat_4: "Verfügbar auf all Ihren Geräten",
   },
+
 } as const;
 
 type TranslationKey = keyof typeof translations.en;

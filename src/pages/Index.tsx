@@ -14,7 +14,9 @@ import BookingModal from "@/components/landing/BookingModal";
 import MobileCTA from "@/components/landing/MobileCTA";
 import BackgroundEffects from "@/components/landing/BackgroundEffects";
 import Quiz from "@/components/landing/Quiz";
+import ProductPreview from "@/components/landing/ProductPreview";
 import SectionWrapper from "@/components/landing/SectionWrapper";
+
 import ScrollProgress from "@/components/landing/ScrollProgress";
 
 const IndexContent = () => {
@@ -46,8 +48,10 @@ const IndexContent = () => {
           <Quiz />
         </SectionWrapper>
         <ResultsSummary />
+        <ProductPreview />
 
         <Pricing onBookClick={handleBookClick} />
+
         <FAQ />
         <Footer onBookClick={handleBookClick} />
       </main>
