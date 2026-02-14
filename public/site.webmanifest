@@ -1,0 +1,16 @@
+{
+    "name": "The Catalyst Physio",
+    "short_name": "Catalyst Physio",
+    "description": "Elite Biomechanical Recovery & Performance",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#020817",
+    "theme_color": "#020817",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ]
+}
